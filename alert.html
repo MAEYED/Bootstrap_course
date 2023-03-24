@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert</title>
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="alertplaceholder"></div>
+        <button class="btn btn-success" id="alertbtn">show alert</button>
+
+    </div>
+    <script>
+        var alertplaceholder = document.querySelector('#alertplaceholder')
+        var alertbtn = document.querySelector('#alertbtn')
+
+        const alert = (message, type) => {
+            const wrapper = document.createElement('div')
+            wrapper.innerHTML = `div class="alert alert-${type} alert-dismissible" role-dissable role="alert">${message}<button type="button" class="btn-close" data-bs-dismisss="alert" aria-label="close"></button><div>`
+
+                alertplaceholder.append(wrapper)
+        }
+
+        if(alertbtn) {
+            alertbtn.addEventListener('click', () => {
+                alert('nice, you triggeredd this alertmessage!', 'success')
+            })
+        }
+    </script>
+
+</body>
+</html>
